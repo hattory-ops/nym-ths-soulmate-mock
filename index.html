@@ -1,1 +1,145 @@
-file:///tmp/index.embed.html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Soulmate × Tinh Hà Say Hi · NYM</title>
+<meta name="theme-color" content="#0a0618" />
+<style>
+:root{--pink:#ff4f9a;--gold:#ffd76a;--cyan:#6be7ff;--text:#faf7ff;--muted:#b0a4d0;--dim:#7d7399;--card:rgba(255,255,255,.07);--stroke:rgba(255,255,255,.14);--safe:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;min-height:100%}
+body{font-family:-apple-system,system-ui,sans-serif;color:var(--text);background:radial-gradient(900px 480px at 50% -8%,#4a1d7a,transparent 55%),#08061a}
+.wrap{max-width:420px;margin:0 auto;padding:20px 16px calc(28px + var(--safe))}.wrap.has-sticky{padding-bottom:calc(120px + var(--safe))}
+.brand{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:12px;color:var(--cyan);font-weight:700}
+.pill{font-size:11px;padding:5px 10px;border-radius:999px;border:1px solid var(--stroke);color:var(--muted)}
+h1{font-size:1.5rem;line-height:1.25;margin:0 0 8px}.grad{background:linear-gradient(100deg,var(--pink),var(--gold),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:.94rem;margin:0 0 18px;line-height:1.45}
+.card{background:var(--card);border:1px solid var(--stroke);border-radius:22px;padding:16px}
+label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px;font-weight:600}
+input,select{width:100%;padding:13px 14px;border-radius:14px;border:1px solid var(--stroke);background:#0c0a1eee;color:var(--text);font-size:16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.btn{width:100%;border:0;border-radius:16px;padding:15px;font-weight:780;font-size:1rem;cursor:pointer;color:#1a0a20;background:linear-gradient(135deg,var(--pink),#ff8fc7 42%,var(--gold))}
+.btn.secondary{background:#ffffff12;color:var(--text);border:1px solid var(--stroke)}.btn.share{background:#1a1433;color:var(--text);border:1px solid #ffffff22}
+.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.screen{display:none}.screen.active{display:block}
+.loader{text-align:center;padding:48px 12px}.orbit{width:72px;height:72px;margin:0 auto 16px;border-radius:50%;border:2px solid transparent;border-top-color:var(--pink);border-right-color:var(--cyan);animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.share-card{border-radius:26px;overflow:hidden;border:1px solid #ffffff22;background:linear-gradient(165deg,#1a1238,#0d0a22);margin-bottom:16px;position:relative}
+.match-duo{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:14px 14px 0;position:relative}
+.match-face{aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#1a1a1a;position:relative}
+.match-face.soul{margin-right:-8px;z-index:1;border:2px solid #ffffff18}
+.match-face.idol{margin-left:-8px;margin-top:16px;z-index:2;border:2px solid #ffd76a77}
+.ph{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(160deg,#2a2a2a,#111);color:#888;font-size:12px;font-weight:700;text-align:center;padding:8px}
+.soul .ph{filter:blur(14px);transform:scale(1.08)}
+.share-card.is-unlocked .soul .ph{filter:none;transform:none}
+.cap{position:absolute;left:8px;right:8px;bottom:8px;font-size:10px;font-weight:700;text-align:center;padding:6px;border-radius:10px;background:#00000088;border:1px solid #ffffff22}
+.score-burst{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:5;width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,var(--gold),#ff9a4a);color:#2a1800;font-weight:900;font-size:1.1rem;box-shadow:0 0 0 4px #08061acc}
+.score-burst small{display:block;font-size:9px;opacity:.75}
+.share-hook{padding:16px;text-align:center}.share-hook .line2{font-size:1.15rem;font-weight:820;margin:4px 0}.share-hook em{font-style:normal;color:var(--gold)}.share-hook .line3{color:var(--dim);font-size:.85rem;margin:0}
+.section-label{font-size:12px;font-weight:750;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin:4px 0 12px}
+.podium{display:grid;grid-template-columns:1fr 1.22fr 1fr;gap:8px;align-items:end;margin-bottom:14px}
+.idol{text-align:center}.idol.gold{order:2}.idol.silver{order:1}.idol.bronze{order:3}
+.idol .frame{aspect-ratio:4/5;border-radius:14px;overflow:hidden;border:1px solid var(--stroke);position:relative;background:#111}
+.idol.gold .frame{border-color:#ffd76a99;box-shadow:0 0 24px #ffd76a30}
+.medal{position:absolute;top:6px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;background:#000a}
+.idol .name{font-size:11px;font-weight:700;margin-top:6px}.idol .score{font-size:14px;font-weight:800;color:var(--gold)}
+.science h3{margin:0 0 10px;font-size:.95rem}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}.m{background:#ffffff08;border-radius:12px;padding:10px}.m .k{font-size:10px;color:var(--dim)}.m .v{font-weight:800;font-size:.95rem}.science ul{margin:0;padding-left:18px;color:var(--muted);font-size:.82rem;line-height:1.45}.footnote{font-size:11px;color:var(--dim);margin:10px 0 0}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 12px calc(10px + var(--safe));background:linear-gradient(180deg,transparent,#08061af2 30%)}.sticky-cta.hidden{display:none}.sticky-cta .inner{max-width:420px;margin:0 auto;display:grid;gap:8px}.price{display:flex;justify-content:space-between;align-items:center;font-size:13px}.price .p{font-weight:800;color:var(--gold)}.price s{color:var(--dim);margin-right:6px}.sticky-cta.done .price{opacity:.5}
+.toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%) translateY(12px);opacity:0;background:#1a1433;border:1px solid #ffffff22;padding:10px 14px;border-radius:12px;font-size:13px;transition:.25s;z-index:30}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.note{text-align:center;color:var(--dim);font-size:11px;margin-top:12px}
+.reveal{display:none;text-align:center;color:var(--cyan);font-size:12px;font-weight:700;padding:0 12px 8px}.share-card.is-unlocked .reveal{display:block}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <div class="brand"><span>✦ NYM × Tinh Hà</span><span class="pill">MOCK</span></div>
+
+  <section class="screen active" id="s1">
+    <h1>Soulmate của bạn giống <span class="grad">anh trai nào?</span></h1>
+    <p class="sub">Map khuôn mặt Seedream → 3 anh trai Tinh Hà Say Hi. % hardcode cho mock viral.</p>
+    <div class="card">
+      <label>Ngày sinh</label>
+      <input type="date" id="dob" value="1987-03-20" />
+      <div class="row">
+        <div><label>Giờ</label><input type="time" id="tob" value="05:15" /></div>
+        <div><label>Giới tính</label><select id="gender"><option value="M" selected>Nam</option><option value="F">Nữ</option></select></div>
+      </div>
+      <div style="height:12px"></div>
+      <button class="btn" id="btnStart">Tìm soulmate →</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s2">
+    <div class="loader"><div class="orbit"></div><p id="genStep">Đang sinh…</p></div>
+  </section>
+  <section class="screen" id="s3">
+    <div class="loader"><div class="orbit"></div><p id="mapStep">Đang map…</p></div>
+  </section>
+
+  <section class="screen" id="s4">
+    <article class="share-card" id="shareCard">
+      <div class="match-duo">
+        <div class="match-face soul" id="soulFace"><div class="ph">SOULMATE<br/>locked</div><div class="cap" id="soulCap">Soulmate của bạn</div></div>
+        <div class="match-face idol"><div class="ph">QUANG HÙNG<br/>MasterD</div><div class="cap">#1 Quang Hùng</div></div>
+        <div class="score-burst"><span><small>MATCH</small>86%</span></div>
+      </div>
+      <div class="reveal" id="revealBanner">✦ Đã mở khóa</div>
+      <div class="share-hook">
+        <p class="line1" style="margin:0;color:var(--muted);font-size:.82rem">Soulmate trùng vibe với</p>
+        <p class="line2"><em>Quang Hùng MasterD</em> tới 86%</p>
+        <p class="line3" id="hookLine3">Mặt thật đang bị che — mở khóa để xem rõ.</p>
+      </div>
+    </article>
+
+    <div class="section-label">Bảng xếp hạng</div>
+    <div class="podium">
+      <div class="idol silver"><div class="frame"><span class="medal">🥈</span><div class="ph">Dương Domic</div></div><div class="name">Dương Domic</div><div class="score" data-target="79">0%</div></div>
+      <div class="idol gold"><div class="frame"><span class="medal">🥇</span><div class="ph">Quang Hùng</div></div><div class="name">Quang Hùng MasterD</div><div class="score" data-target="86">0%</div></div>
+      <div class="idol bronze"><div class="frame"><span class="medal">🥉</span><div class="ph">Wren Evans</div></div><div class="name">Wren Evans</div><div class="score" data-target="72">0%</div></div>
+    </div>
+
+    <div class="card science" id="sciencePanel">
+      <h3>✦ Phân tích độ tương đồng (mock lab)</h3>
+      <div class="metrics">
+        <div class="m"><div class="k">Hình học khuôn mặt</div><div class="v">0.91</div></div>
+        <div class="m"><div class="k">Landmark</div><div class="v">18/21</div></div>
+        <div class="m"><div class="k">Persona / vibe</div><div class="v">84%</div></div>
+        <div class="m"><div class="k">Chiêm tinh giả lập</div><div class="v">3/5</div></div>
+      </div>
+      <ul>
+        <li><strong>Tỷ lệ khuôn mặt:</strong> facial thirds lệch &lt; 4% vs MasterD.</li>
+        <li><strong>Persona:</strong> warm · lead · stage-presence overlap 84% (mock).</li>
+        <li><strong>Lá số:</strong> trùng 3/5 trục chính (giả lập).</li>
+      </ul>
+      <p class="footnote">Mock lab copy — số hardcode để team cảm UX.</p>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn share" id="btnShare">Share kết quả</button>
+      <button class="btn secondary" id="btnAgain">Làm lại</button>
+    </div>
+    <p class="note">Mock · % hardcode · ảnh placeholder (bản đủ ảnh sẽ cập nhật)</p>
+  </section>
+</div>
+
+<div class="sticky-cta hidden" id="stickyCta">
+  <div class="inner">
+    <div class="price"><span>Mở khóa ảnh soulmate rõ nét</span><span class="p"><s>99k</s> 49k</span></div>
+    <button class="btn" id="btnUnlock">Xem mặt người ấy ngay →</button>
+  </div>
+</div>
+<div class="toast" id="toast">OK</div>
+
+<script>
+const wrap=document.getElementById('wrap'),sticky=document.getElementById('stickyCta');
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');const r=id==='s4';sticky.classList.toggle('hidden',!r);wrap.classList.toggle('has-sticky',r);window.scrollTo({top:0,behavior:'smooth'})}
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function run(){show('s2');const g=document.getElementById('genStep');for(const s of['Đọc ngày sinh…','Ghép catalog…','Vẽ graphite…','Khóa soft-blur…']){g.textContent=s;await wait(500)}show('s3');const m=document.getElementById('mapStep');for(const s of['So khớp vibe…','Đối chiếu persona…','Map lá số…','Xếp huy chương…']){m.textContent=s;await wait(550)}show('s4');document.querySelectorAll('.idol .score').forEach(node=>{const t=+node.dataset.target,t0=performance.now();(function tick(now){const p=Math.min(1,(now-t0)/1100);node.textContent=Math.round(t*(1-Math.pow(1-p,3)))+'%';if(p<1)requestAnimationFrame(tick)})(t0)})}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+document.getElementById('btnStart').onclick=()=>run();
+let unlocked=false;
+document.getElementById('btnUnlock').onclick=()=>{if(unlocked){toast('Đã mở khóa rồi ✦');return}unlocked=true;toast('Thanh toán thành công ✓');document.getElementById('shareCard').classList.add('is-unlocked');sticky.classList.add('done');document.getElementById('btnUnlock').textContent='Đã mở khóa ✓';document.getElementById('hookLine3').textContent='Đã mở khóa. So cạnh MasterD: cùng cụm hình học + vibe lead ấm.';document.getElementById('soulCap').textContent='Soulmate · đã mở';document.getElementById('sciencePanel').scrollIntoView({behavior:'smooth',block:'nearest'})};
+document.getElementById('btnAgain').onclick=()=>{unlocked=false;document.getElementById('shareCard').classList.remove('is-unlocked');sticky.classList.remove('done');document.getElementById('btnUnlock').textContent='Xem mặt người ấy ngay →';document.getElementById('hookLine3').textContent='Mặt thật đang bị che — mở khóa để xem rõ.';show('s1')};
+document.getElementById('btnShare').onclick=async()=>{const c='Soulmate của mình giống Quang Hùng MasterD tới 86% 😭🔒\nNYM × Tinh Hà Say Hi';try{if(navigator.share)await navigator.share({title:'Soulmate Match · NYM',text:c});else await navigator.clipboard.writeText(c);toast('Đã share / copy ✓')}catch{try{await navigator.clipboard.writeText(c);toast('Đã copy ✓')}catch{toast('Copy thủ công nhé')}}};
+</script>
+</body>
+</html>
